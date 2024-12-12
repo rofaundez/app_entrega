@@ -1,0 +1,38 @@
+<ion-content [fullscreen]="true">
+  
+  <!-- Contenedor principal con la clase fondo para el fondo de la página -->
+  <div class="fondo">
+    
+    <!-- Contenedor para el título de la página -->
+    <div class="titulo-recuperar">
+      <ion-card-subtitle class="text-center">{{ 'HomePage.Button.pregunta' | translate }}</ion-card-subtitle>
+    </div>
+    
+    <!-- Card para mostrar el formulario de recuperar contraseña -->
+    <ion-card class="ion-card-">
+      <ion-card-header>
+        <!-- Título de la tarjeta -->
+        <ion-card-title class="titulo-contraseña">{{ 'Login.Placeholder.EmailingREC' | translate }}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <!-- Input para que el usuario ingrese su correo -->
+        <ion-input 
+          type="email" 
+          class="input-correo" 
+          placeholder="ej: atorres@duocuc.cl"
+          (ionInput)="actualizarCorreo($event)"  
+          name="correo">
+        </ion-input>
+        
+        <!-- Botón para recuperar la contraseña -->
+        <ion-button expand="full" class="boton-recuperar" (click)="ingresarCorreo()">
+          {{ 'HomePage.Button.pregunta' | translate }}</ion-button>
+        
+        <!-- Enlace para iniciar sesión -->
+        <p>{{ 's' | translate }} <a href="/ingreso">{{ 'Login.Title.Login' | translate }}</a>.</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+</ion-content>

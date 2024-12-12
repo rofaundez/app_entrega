@@ -1,0 +1,72 @@
+/* General */
+body, ion-content {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5; /* Fondo claro */
+  color: #333; /* Texto oscuro */
+}
+
+/* Header */
+app-header {
+  display: block;
+  background-color: #007BFF; /* Azul para el header */
+  padding: 10px 20px;
+  font-size: 18px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+/* Footer */
+app-footer {
+  display: block;
+  background-color: #343a40; /* Gris oscuro */
+  color: white;
+  padding: 10px 20px;
+  font-size: 14px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+/* Ion Content */
+ion-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  height: calc(100vh - 120px); /* Altura menos header y footer */
+  overflow-y: auto;
+}
+
+
+/* Botones dentro de los componentes */
+button {
+  display: inline-block;
+  background-color: #007BFF; /* Azul */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3; /* Azul más oscuro al pasar el cursor */
+}
+
+/* Links */
+a {
+  color: #007BFF;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}

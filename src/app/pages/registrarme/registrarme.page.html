@@ -1,0 +1,103 @@
+<ion-content [fullscreen]="true">
+  <div class="fondo">
+  
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title class="titulo-usuarios">{{ 'Registry.page.Title' | translate }}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+
+        <h4 class="title-containers"> {{ 'Registry.page.Title' | translate }} </h4>
+  
+        <!-- Campos de registro -->
+        <div class="input-container">
+          <!-- Nombre de usuario -->
+          <ion-item class="input-item">
+            <ion-label class="input-label"> {{ 'MisDatos.form.Cuenta' | translate }}: </ion-label>
+            <ion-input type="text" [(ngModel)]="usuario.userName" placeholder="  Ej: atorres"></ion-input>
+          </ion-item>
+  
+          <!-- Nombres -->
+          <ion-item class="input-item">
+            <ion-label class="input-label"> {{ 'MisDatos.form.Nombre' | translate }}:  </ion-label>
+            <ion-input type="text" [(ngModel)]="usuario.firstName" placeholder="  Ej: Ana"></ion-input>
+          </ion-item>
+  
+          <!-- Apellidos -->
+          <ion-item class="input-item">
+            <ion-label class="input-label"> {{ 'MisDatos.form.Apellido' | translate }}: </ion-label>
+            <ion-input type="text" [(ngModel)]="usuario.lastName" placeholder=" Ej: Torres"></ion-input>
+          </ion-item>
+  
+          <!-- Correo -->
+          <ion-item class="input-item">
+            <ion-label class="input-label"> {{ 'MisDatos.form.Correo' | translate }}:  </ion-label>
+            <ion-input type="text" [(ngModel)]="usuario.email" placeholder=" Ej: atorres@duocuc.cl"></ion-input>
+          </ion-item>
+  
+          <!-- Dirección -->
+          <ion-item class="input-item">
+            <ion-label class="input-label"> {{ 'MisDatos.form.Direccion' | translate }}:  </ion-label>
+            <ion-input type="text" [(ngModel)]="usuario.address" placeholder=" Ej: Alameda #54"></ion-input>
+          </ion-item>
+          
+          <!-- Pregunta Secreta -->
+          <ion-item class="input-item">
+            <ion-label class="input-label">{{ 'MisDatos.form.Pregunta.secreta' | translate }}:  </ion-label>
+            <ion-input type="text" [(ngModel)]="usuario.secretQuestion" placeholder=" Ej: ¿Cual es tu animal favorito?"></ion-input>
+          </ion-item>
+  
+          <!-- Respuesta Secreta -->
+          <ion-item class="input-item">
+            <ion-label class="input-label"> {{ 'MisDatos.form.Respuesta.secreta' | translate }}:  </ion-label>
+            <ion-input type="text" [(ngModel)]="usuario.secretAnswer" placeholder=" Ej: gato"></ion-input>
+          </ion-item>
+  
+          <!-- Nivel Educacional -->
+          <ion-item class="input-item">
+            <ion-label class="input-label"> {{ 'MisDatos.form.Educación2' | translate }}:  </ion-label>
+            <ion-select placeholder="Seleccione nivel" [(ngModel)]="usuario.educationalLevel.id">
+              <ion-select-option *ngFor="let educationalLevel of listaNivelesEducacionales" [value]="educationalLevel.id">
+                {{ educationalLevel.name }}
+              </ion-select-option>
+            </ion-select>
+          </ion-item>
+  
+          <!-- Fecha de Nacimiento usando input tipo date -->
+          <ion-item class="input-item">
+            <ion-label class="input-label"> {{ 'MisDatos.form.Birth' | translate }}: </ion-label>
+            <input style="text-align: right; border: 0px;" 
+              type="date"
+              [(ngModel)]="usuario.dateOfBirth">
+          </ion-item>
+  
+          <!-- Contraseña -->
+          <ion-item class="input-item">
+            <ion-label class="input-label"> 
+              {{ 'MisDatos.form.Contraseña' | translate }}: </ion-label>
+            <ion-input type="password" [(ngModel)]="usuario.password" placeholder="  Ej: 1234"></ion-input>
+          </ion-item>
+  
+          <!-- Repetir Contraseña -->
+          <ion-item class="input-item">
+            <ion-label class="input-label"> {{ 'MisDatos.form.Contraseña2' | translate }}: </ion-label>
+            <ion-input type="password" [(ngModel)]="usuario.confirmPassword" placeholder="  Ej: 1234"></ion-input>
+          </ion-item>
+  
+          <!-- Botones de Registro -->
+          <div class="ion-text-center margin-top-6">
+            <ion-button (click)="crearCuenta()" shape="round" size="small">
+              {{ 'Login.Button.becomereal' | translate }}
+            </ion-button>
+  
+            <ion-button (click)="navigateToLogin()" shape="round" size="small">
+              {{ 'Login.Button.Login2.0' | translate }}
+            </ion-button>
+          </div>
+        </div>
+
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

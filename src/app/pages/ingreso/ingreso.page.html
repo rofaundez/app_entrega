@@ -1,0 +1,111 @@
+<ion-content >
+  <div  class="centrar">
+    <div  class="enmarcar-login" >
+      <ion-card class="ion-text-center tarjeta-blanca">
+        
+        <ion-header >
+          <ion-toolbar >
+            <div slot="end" class="ion-margin" >
+              <app-language #selectLanguage></app-language>
+            </div>
+            <div class="show-in-landscape">
+              <h1 class="glow-text"> {{ 'AppName' | translate }} </h1>
+            </div>
+            <div slot="start" class="ion-margin">
+              <ion-button shape="round" size="small" (click)="navigateTheme()">
+                {{ 'Login.Title.Theme' | translate }}
+                <ion-icon slot="start" name="color-wand-outline"></ion-icon>
+              </ion-button>
+            </div>
+           </ion-toolbar>
+        </ion-header>
+      
+          <!-- foto y texto -->
+
+        <img alt="DUOC" src="../../../assets/images/asistencia.png" class="foto-portada" />
+      
+        <ion-card-content>
+
+          <ion-card-header>
+            <ion-toolbar class="tarjeta-blanca">
+              <h2>{{ 'Login.Title.Login' | translate }}</h2>
+            </ion-toolbar>
+          </ion-card-header>
+
+            <!-- datos -->
+      
+            <ion-item class="margin-bottom-6 float-left-landscape tarjeta-blanca">
+              <ion-input 
+  id="login-email"
+  label="{{ 'Login.Label.Email' | translate }}" 
+  labelPlacement="floating"
+  [(ngModel)]="user" 
+  placeholder="{{ 'Login.Placeholder.Email' | translate }}">
+</ion-input>
+
+            </ion-item>
+      
+            <ion-item class="margin-bottom-6 float-right-landscape tarjeta-blanca">
+              <ion-input 
+  id="login-password"
+  label="{{ 'Login.Label.Password' | translate }}"
+  labelPlacement="floating"
+  [(ngModel)]="password" 
+  placeholder="{{ 'Login.Placeholder.Password' | translate }}"
+  type="password">
+</ion-input>
+
+            </ion-item>
+
+            <!-- botones -->
+
+            <ion-row class="ion-text-center ion-justify-content-center margin-top-6">
+              <ion-col size="auto">
+                <ion-button id="login-button" class="enter-button normal-text" shape="round" (click)="login()">
+                  {{ 'Login.Button.Login' | translate }}
+                </ion-button>
+                
+              </ion-col>
+            </ion-row>
+            
+            <ion-row class="ion-text-center ion-justify-content-center">
+              <ion-col size="auto">
+                <ion-button id="register-button" fill="clear" color="primary" shape="round" (click)="navigateToRegistro()">
+                  {{ 'HomePage.Button.Registro' | translate }}
+                </ion-button>
+              </ion-col>
+            </ion-row>
+
+            
+
+            <ion-row class="ion-text-center ion-justify-content-center">
+              <ion-col size="auto">
+                <ion-button fill="clear" color="primary" shape="round" (click)="navigateToCorreo()">
+                  {{ 'HomePage.Button.pregunta' | translate }}
+                </ion-button>
+              </ion-col>
+            </ion-row>
+            
+            <ion-row class="ion-text-center ion-justify-content-center">
+              <ion-col size="auto">
+                <ion-button fill="clear" color="primary" shape="round" (click)="navigateToMap()">
+                  {{ 'HomePage.Button.MiRuta' | translate }}
+                </ion-button>
+              </ion-col>
+            </ion-row>
+            
+            
+            
+      
+          
+          
+
+
+
+        </ion-card-content>
+
+      </ion-card>
+
+    </div>
+  </div>
+</ion-content>

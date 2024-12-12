@@ -1,0 +1,53 @@
+<ion-content [fullscreen]="true">
+  <div class="fondo">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title class="titulo-usuarios">{{ 'HomePage.manage.Usuarios' | translate }}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <div class="scroll-container">
+        <ion-grid>
+          <ion-row>
+            <!-- Usamos un loop para mostrar los usuarios en columnas horizontales -->
+            <ion-col size="12" size-md="4" *ngFor="let usuario of usuarios">
+              <!-- Cada usuario estará dentro de un ion-card -->
+              <ion-card class="usuario-card">
+                <ion-card-header>
+                  <ion-card-title class="usuario-nombre">
+                    {{ usuario.firstName }} {{ usuario.lastName }}
+                  </ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content class="content-flex">
+                  <ion-row>
+                    <ion-col size="9">
+                      <p>{{ usuario.email }}</p>
+                    </ion-col>
+                    <ion-col size="auto" class="ion-text-end">
+                      <ion-button 
+                      *ngIf="usuario.userName != 'atorres'"
+                        fill="solid" 
+                        color="danger"  
+                        (click)="deleteUser(usuario.userName)">
+                        <ion-icon name="trash" style="color: white"></ion-icon> 
+                      </ion-button>
+                    </ion-col>
+                  </ion-row>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+        <!-- Mensaje si no hay usuarios -->
+        <ion-card *ngIf="usuarios.length === 0">
+          <ion-card-header>
+            <ion-card-title>No hay usuarios registrados</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

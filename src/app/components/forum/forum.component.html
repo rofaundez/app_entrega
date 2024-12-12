@@ -1,0 +1,66 @@
+<ion-content [fullscreen]="true">
+  <div class="fondo">
+    <!-- Formulario para crear/editar publicaciones -->
+    <ion-card class="scroll-container" >
+      <ion-card-header>
+        <ion-card-title class="titulo-contraseña">{{ 'forum' | translate }}</ion-card-title>
+        <ion-card-subtitle>{{ selectedPostText }}</ion-card-subtitle>
+      </ion-card-header>
+      
+          <ion-item id="postTitle" >
+            <ion-input 
+              label="Título" 
+              labelPlacement="floating" 
+              [(ngModel)]="post.title"
+              placeholder="Ingresa el título de la publicación">
+            </ion-input>
+          </ion-item>
+
+          <ion-item id="postDescription" >
+            <ion-textarea 
+              label="Descripción" 
+              labelPlacement="floating" 
+              [(ngModel)]="post.body"
+              placeholder="Escribe el contenido de la publicación">
+            </ion-textarea>
+          </ion-item>
+
+          <div id="savePostButton" class="botonera">
+            <ion-button expand="block" class="boton-principal" (click)="cleanPost()">{{ 'delete' | translate }}</ion-button>
+            <ion-button expand="block" class="boton-principal" (click)="savePost()">
+              {{ post.id ? 'Actualizar' : 'Guardar' }}
+            </ion-button>
+          </div>
+        
+    </ion-card>
+    
+    <!-- Lista de publicaciones recientes -->
+    <ion-card class="tarjeta">
+      <ion-card-title class="titulo-seccion">Publicaciones Recientes</ion-card-title>
+    </ion-card>
+
+    <div  class="scroll-container">
+      <ion-list  class="lista-publicaciones">
+        <ion-card  *ngFor="let post of posts; trackBy: getPostId" class="tarjeta-publicacion">
+          <ion-card-header >
+            <h6>(Publicación #{{ post.id }}) {{ post.author }}</h6>
+            <h4>{{ post.title }}</h4>
+          </ion-card-header>
+    
+          <ion-card-content>
+            <p>{{ post.body }}</p>
+          </ion-card-content>
+    
+          <div class="acciones-publicacion">
+            <ion-fab-button size="small" color="primary" (click)="editPost(post)">
+              <ion-icon name="pencil-outline"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button size="small" color="danger" (click)="deletePost(post)">
+              <ion-icon name="trash-outline"></ion-icon>
+            </ion-fab-button>
+          </div>
+        </ion-card>
+      </ion-list>
+    </div>
+  </div>
+</ion-content>
